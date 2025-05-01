@@ -5,16 +5,16 @@ const NewsBoard = ({ category }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`;
+    const url = `https://gnews.io/api/v4/top-headlines?lang=en&topic=${category}&token=${import.meta.env.VITE_GNEWS_API_KEY}`;
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log("API response:", data); // 👈 debug
+        console.log("API response:", data); 
         if (Array.isArray(data.articles)) {
           setArticles(data.articles);
         } else {
-          setArticles([]); // fallback to empty array
+          setArticles([]); 
         }
       })
       .catch((error) => {
