@@ -4,7 +4,7 @@ import NewsBoard from "./Components/NewsBoard"
 import NewsItem from "./Components/NewsItem"
 
 const App = () => {
-	const [category, setCategory] = useState("");
+	const [category, setCategory] = useState("technology");
 	return (
 		<div>
 			<Navbar category={category} setCategory={setCategory} /> 
